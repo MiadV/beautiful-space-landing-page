@@ -1,0 +1,272 @@
+/*=====  GOOGLE FONTS  ======*/
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap");
+
+/*=====  VARIABLES  ======*/
+:root {
+  // COLORS
+  --clr--primary-hue: 37;
+  --clr--secondary-hue: 221;
+  --clr-primary: hsl(var(--clr--primary-hue), 98%, 53%);
+  --clr-secondary: hsl(var(--clr--secondary-hue), 51%, 25%);
+  --clr-text-light: white;
+
+  // TYPOGRAPHY
+  --font-family: "Lato", sans-serif;
+  --fw-regular: 400;
+  --fw-bold: 700;
+
+  // FONT SIZE
+  --fs-md: 1.125rem;
+  --fs-lg: 1.375rem;
+  --fs-xl: 2rem;
+  --fs-xxl: 3rem;
+
+  // SPACING
+  --header-height: 90px;
+}
+
+/*=====  CSS BASE  ======*/
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: var(--header-height) 0 0 0;
+  padding: 0;
+  font-family: var(--font-family);
+  font-size: var(--fs-md);
+  font-weight: var(--fw-regular);
+  color: var(--clr-text-light);
+}
+
+h1,
+h3,
+p {
+  margin: 0;
+}
+
+ul,
+li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+/*=====  COMPONENTS  ======*/
+.container {
+  margin: 0 auto;
+  padding: 1.5rem 2rem;
+  max-width: 100%;
+
+  &--lg {
+    max-width: 1400px;
+  }
+
+  &--md {
+    max-width: 1024px;
+  }
+}
+
+.btn {
+  color: var(--clr-text-light);
+  padding: 0.75rem 1.125rem;
+  border: 1px solid white;
+  border-radius: 50px;
+
+  &--primary {
+    background-color: var(--clr-primary);
+    border: none;
+    transition: all 0.3s;
+    &:hover {
+      background-color: hsl(var(--clr--primary-hue), 98%, 45%);
+    }
+  }
+
+  &--secondary {
+    background-color: var(--clr-secondary);
+    transition: all 0.3s;
+    &:hover {
+      background-color: hsl(var(--clr--secondary-hue), 51%, 15%);
+    }
+  }
+
+  &--lg {
+    font-size: var(--fs-lg);
+  }
+}
+
+/*=====  ANIMATIONS  ======*/
+@keyframes move-twink {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: -10000px 0;
+  }
+}
+
+/*=====  HEADER  ======*/
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: transparent;
+  z-index: 100;
+}
+
+.nav {
+  height: var(--header-height);
+
+  @media screen and (min-width: 768px) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__logo {
+    text-align: center;
+    display: block;
+    color: var(--clr-text-light);
+    font-weight: var(--fw-bold);
+    font-size: var(--fs-xl);
+  }
+
+  &__menu {
+    margin-top: 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .nav__list {
+      display: flex;
+
+      &__item {
+        a {
+          color: var(--clr-text-light);
+          transition: all 0.3s;
+
+          &:hover {
+            color: var(--clr-primary);
+          }
+        }
+
+        &:not(:last-child) {
+          margin-right: 1rem;
+        }
+
+        @media screen and (min-width: 768px) {
+          margin-right: 1rem;
+        }
+      }
+
+      &__btn {
+        display: none;
+
+        @media screen and (min-width: 768px) {
+          display: block;
+          &:not(:last-child) {
+            margin-right: 1rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+/*=====  HERO  ======*/
+
+.hero {
+  position: relative;
+  height: 750px;
+  background-image: url("./images/BG-Gradient.png");
+  background-size: contain;
+  padding-top: var(--header-height);
+  margin-top: calc(var(--header-height) * -1);
+
+  &:before {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 4;
+    width: 100%;
+    height: 25px;
+    background: linear-gradient(to top, #fff 15%, transparent 100%);
+  }
+
+  &__content {
+    position: relative;
+    z-index: 4;
+
+    &__text {
+      text-align: center;
+
+      h1 {
+        font-size: var(--fs-xxl);
+        margin-bottom: 1rem;
+      }
+
+      h3 {
+        font-size: var(--fs-md);
+        font-weight: var(--fs-md);
+        margin-bottom: 3rem;
+      }
+    }
+
+    &__img {
+      display: flex;
+      max-width: 100px;
+      margin: 0 auto;
+      margin-bottom: 1rem;
+    }
+  }
+
+  .stars {
+    background: transparent url("/assets/images/stars_bg.png") repeat top center;
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+
+    z-index: 0;
+  }
+
+  .twinkling {
+    background: transparent url("/assets/images/bg-twinkle.png") top center;
+    background-size: contain;
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+
+    z-index: 1;
+
+    animation: move-twink 800s linear infinite;
+  }
+
+  .clouds {
+    background: url("/assets/images/clouds.png") center bottom no-repeat;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 187px;
+    z-index: 2;
+  }
+}
