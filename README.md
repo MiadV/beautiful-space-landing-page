@@ -12,7 +12,10 @@
 
 Join my youtube channel to see more videos like this. [Youtube Channel](https://www.youtube.com/c/MiadVosoughi)
 
-![](/preview.png)
+[**👉View Live**](https://lkcuul.csb.app/)
+<br />
+
+![Beautiful Space Landing Page - CSS Animation](/preview.png)
 
 ### File Structure
 
